@@ -25678,6 +25678,18 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-form1 #scroll {
+  height: 50%;
+}
+
 page-home ion-icon {
   font-size: 40px;
+}
+
+page-welcome-user-2 ion-item {
+  margin-top: 50px;
+}
+
+page-welcome-user-2 #my-app {
+  height: 50%;
 }

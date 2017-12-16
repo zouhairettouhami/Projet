@@ -16,6 +16,7 @@ export class LoginPage {
     password :''
   };
   constructor(public navCtrl: NavController,private afAuth: AngularFireAuth,public navParams: NavParams,private toastCtrl:ToastController) {
+    console.log(this.navParams.get('nom'))
   }
 
   ionViewDidLoad() {

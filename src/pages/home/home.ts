@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from "../login/login";
+import {MapingProvider} from "../../providers/maping/maping"
 
 
 
@@ -10,8 +11,13 @@ import {LoginPage} from "../login/login";
   templateUrl: 'home.html',
 })
 export class HomePage {
+    result ={
+        id:'',
+        nom:'',
+        prenom :'',
+    };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public MapingProvider: MapingProvider) {
   }
 
   ionViewDidLoad() {
@@ -20,4 +26,8 @@ export class HomePage {
   Login(){
     this.navCtrl.push(LoginPage);
   }
+  getData(){
+      this.MapingProvider.getUser('http://localhost:3000',this.result)
+  }
+
 }

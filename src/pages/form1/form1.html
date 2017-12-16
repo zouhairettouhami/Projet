@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Shopping Cart</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-list-header>Compose your Shopping Cart by adding shopping elements from the list</ion-list-header>
+        <ion-item  *ngFor="let item of items[0]">
+            <h2>{{item.title}}</h2>
+            <h3>Price:{{item.price}}DH</h3>
+            <button ion-button item-right (click)="addToCart(item)">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+            <ion-item *ngFor="let chosenitem of chosenitems">
+                <h2>{{chosenitem.title}}</h2>
+                <h3>Quantity : {{chosenitem.quantity}}</h3>
+                <h4>Price : {{chosenitem.quantity *chosenitem.price}}</h4>
+                <button ion-button item-right (click)="removeItem(chosenitem)">
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+            </ion-item>
+            <ion-item>
+                <div align="right"> Total price :{{totalPrices}}DH</div>
+            </ion-item>
+    </ion-list>
+    <ion-fab bottom right>
+        <button ion-fab color="primary" (click)="viewCart()"><ion-icon name="cart"></ion-icon></button>
+    </ion-fab>
+</ion-content>

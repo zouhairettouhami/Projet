@@ -5,7 +5,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MyApp } from './app.component';
 import {Camera} from "@ionic-native/camera"
-
+import {HttpModule} from "@angular/http"
+import {HttpClientModule} from "@angular/common/http"
 import {HomePage} from "../pages/home/home"
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -16,6 +17,11 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import * as firebase from "firebase";
 import {WelcomeUserPage} from "../pages/welcome-user/welcome-user";
 import {WelcomeDeliveryPage} from "../pages/welcome-delivery/welcome-delivery"
+import { MapingProvider } from '../providers/maping/maping';
+import {Form1Page} from "../pages/form1/form1"
+import {Form2Page} from "../pages/form2/form2"
+import {TestPage} from "../pages/test/test";
+
 
 var config = {
   apiKey: "AIzaSyB_LY5muPliTgT9j1czRylH6M8-qr8RK5A",
@@ -36,15 +42,21 @@ firebase.initializeApp(config);
     WelcomeUserPage,
     WelcomeDeliveryPage,
     WelcomeUser_2Page,
-    HomePage
+    HomePage,
+    Form1Page,
+    Form2Page,
+    TestPage
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule,
+    HttpClientModule
   ],
+
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -53,7 +65,10 @@ firebase.initializeApp(config);
       WelcomeUserPage,
       WelcomeDeliveryPage,
     WelcomeUser_2Page,
-    HomePage
+    HomePage,
+    Form1Page,
+    Form2Page,
+    TestPage
 
   ],
   providers: [
@@ -61,7 +76,8 @@ firebase.initializeApp(config);
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    Camera
+    Camera,
+    MapingProvider
   ]
 })
 export class AppModule {}
